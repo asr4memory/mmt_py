@@ -1,5 +1,120 @@
-body {
-    background-color: lightblue;
+:root {
+    --base-unit: 1.5rem;
+    --primary-color: #b6010e;
+    --text-color: #333;
+    --ui-color: #555;
+    --layout-color: #1a2c5b;
+    --page-width: calc(var(--base-unit) * 48);
+    --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
+        "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
+        sans-serif;
 }
 
-@import "test.css";
+body {
+    font-family: var(--font-stack);
+    line-height: var(--base-unit);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--page-width);
+    padding-left: var(--base-unit);
+    padding-right: var(--base-unit);
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site__main {
+    flex-grow: 1;
+}
+
+.header {
+    background-color: var(--layout-color);
+    color: #fff;
+    padding: calc(var(--base-unit) / 2) 0;
+}
+
+.header__inner {
+    display: flex;
+}
+
+.header__title {
+    font-size: 1.5rem;
+    line-height: var(--base-unit);
+    margin: 0;
+}
+
+.header__title-link:link,
+.header__title-link:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__title-link:hover,
+.header__title-link:active {
+    text-decoration: underline;
+}
+
+.header__title-img {
+    display: block;
+    width: 4rem;
+}
+
+.primary-nav {
+    margin-left: auto;
+}
+
+.primary-nav__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: calc(var(--base-unit) / 2) 0;
+}
+
+.primary-nav__item {
+    margin-left: calc(var(--base-unit) / 2);
+}
+
+.primary-nav__link:link,
+.primary-nav__link:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.primary-nav__link:hover,
+.primary-nav__link:active {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: var(--layout-color);
+    color: #fff;
+}
+
+.footer__inner {
+    padding-bottom: calc(var(--base-unit) / 2);
+    padding-top: calc(var(--base-unit) / 2);
+}
+
+.breadcrumbs {
+    color: var(--ui-color);
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+}
+
+.breadcrumbs__link:link,
+.breadcrumbs__link:visited {
+    color: var(--ui-color);
+}
+
+.page-title {
+    font-size: 1.5rem;
+    line-height: var(--base-unit);
+    margin-top: calc(var(--base-unit) / 2);
+    margin-bottom: calc(var(--base-unit) * 1);
+}
