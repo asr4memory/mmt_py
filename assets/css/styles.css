@@ -1,15 +1,3 @@
-:root {
-    --base-unit: 1.5rem;
-    --primary-color: #b6010e;
-    --text-color: #333;
-    --ui-color: #555;
-    --layout-color: #1a2c5b;
-    --page-width: calc(var(--base-unit) * 48);
-    --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans",
-        "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref",
-        sans-serif;
-}
-
 body {
     font-family: var(--font-stack);
     line-height: var(--base-unit);
