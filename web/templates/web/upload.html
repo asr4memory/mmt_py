@@ -17,12 +17,4 @@
     </div>
 </form>
 
-<ul class="u-mt">
-{% for file in uploaded_files %}
-    <li>
-        {{ file.name }} ({{ file.media_type }})
-    </li>
-{% endfor %}
-</ul>
-
 {% endblock %}

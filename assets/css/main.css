@@ -5,6 +5,6 @@
 /* Components */
 @import "styles";
 @import "components/form";
-
+@import "components/table";
 
 @import "utilities";

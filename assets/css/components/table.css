@@ -1,0 +1,32 @@
+.table {
+    border-collapse: collapse;
+    border: 2px solid var(--ui-color);
+    font-size: 0.875rem;
+}
+
+.table thead,
+.table tfoot {
+    background-color: var(--interleave-color);
+}
+
+.table th,
+.table td {
+    border: 1px solid var(--ui-color);
+    padding: calc(var(--base-unit) / 4) calc(var(--base-unit) / 2);
+}
+
+.table td:last-of-type {
+    text-align: center;
+}
+
+.table tbody>tr:nth-of-type(even) {
+    background-color: var(--interleave-color);
+}
+
+.table tfoot th {
+    text-align: right;
+}
+
+.table tfoot td {
+    font-weight: bold;
+}
