@@ -34,7 +34,7 @@ INTERNAL_IPS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'files.apps.FilesConfig',
+    'web.apps.WebConfig',
     'webpack_loader',
     'debug_toolbar',
     'django.contrib.admin',
