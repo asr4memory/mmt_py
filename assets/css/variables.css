@@ -3,7 +3,7 @@
     --primary-color: #b6010e;
     --text-color: #333;
     --ui-color: #555;
-    --layout-color: #b6010e;
+    --layout-color: #555;
     --page-width: calc(var(--base-unit) * 48);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode",
         "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana,
