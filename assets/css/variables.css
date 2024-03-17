@@ -5,6 +5,7 @@
     --ui-color: #555;
     --interleave-color: #edeef2;
     --layout-color: #555;
+    --button-border-width: 0.05rem;
     --page-width: calc(var(--base-unit) * 48);
     --font-stack: Corbel, "Lucida Grande", "Lucida Sans Unicode",
         "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana,

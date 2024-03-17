@@ -1,0 +1,11 @@
+.button {
+
+}
+
+.button--small {
+    border: var(--button-border-width) solid var(--ui-color);
+    border-radius: 3px;
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+    padding: 0 calc(var(--base-unit) / 4);
+}
