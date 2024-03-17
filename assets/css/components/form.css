@@ -1,0 +1,12 @@
+.form {
+    line-height: var(--base-unit);
+}
+
+.form input,
+.form button {
+    line-height: var(--base-unit);
+}
+
+.form button {
+    padding: 0 calc(var(--base-unit) / 2);
+}

@@ -1,4 +1,10 @@
 @import "normalize";
+
 @import "variables";
+
+/* Components */
 @import "styles";
+@import "components/form";
+
+
 @import "utilities";
