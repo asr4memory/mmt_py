@@ -4,7 +4,8 @@
     --text-color: #333;
     --ui-color: #555;
     --interleave-color: #edeef2;
-    --layout-color: #b8d055;
+    --header-height: calc(var(--base-unit) * 2);
+    --header-bg-color: #b8d055;
     --footer-bg-color: #c6d19b;
     --button-border-width: 0.05rem;
     --page-width: calc(var(--base-unit) * 48);

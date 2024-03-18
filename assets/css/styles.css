@@ -19,44 +19,7 @@ body {
 
 .site__main {
     flex-grow: 1;
-}
-
-.header {
-    background-color: var(--layout-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: var(--text-color);
-}
-
-.header__inner {
-    align-items: center;
-    display: flex;
-}
-
-.header__title {
-    font-size: 1.5rem;
-    line-height: var(--base-unit);
-    margin: 0;
-}
-
-.header__title-link {
-    display: flex;
-}
-
-.header__title-link:link,
-.header__title-link:visited {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.header__title-link:hover,
-.header__title-link:active {
-    text-decoration: underline;
-}
-
-.header__logo {
-    display: block;
-    height: var(--base-unit);
-    margin-right: calc(var(--base-unit) / 4);
+    padding-top: var(--header-height);
 }
 
 .primary-nav {

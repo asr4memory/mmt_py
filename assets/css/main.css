@@ -6,6 +6,7 @@
 @import "styles";
 @import "components/button";
 @import "components/form";
+@import "components/header";
 @import "components/table";
 
 @import "utilities";
