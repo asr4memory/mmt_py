@@ -2,6 +2,11 @@ Python version of MMT software
 
 *This software is experimental.*
 
+## Requirements
+
+- Python 3.12 (tested with 3.12, likely runs with older versions)
+- ffmpeg
+
 ## Installation
 
 - Create virtual environment
