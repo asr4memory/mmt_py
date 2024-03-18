@@ -1,3 +1,4 @@
+import os
 from django.db import models
 
 class UploadedFile(models.Model):
@@ -10,6 +11,14 @@ class UploadedFile(models.Model):
 
     def __str__(self):
         return self.name
+
+    def delete(self, *args, **kwargs):
+        """
+        Remove file from disk before deleting record.
+        Does not work on bulk operations in Django Admin.
+        """
+        os.remove(self.file.path)
+        super(UploadedFile, self).delete(*args,**kwargs)
 
     class Meta:
         ordering = ["-upload_date"]
