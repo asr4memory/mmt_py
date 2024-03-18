@@ -1,3 +1,4 @@
+{% load static %}
 {% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
@@ -7,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% render_bundle 'main' 'css' %}
     <title>{% block title %}MMT Py{% endblock %}</title>
-    <link rel=icon href=favicon-16.png sizes=16x16 type=image/png>
-    <link rel=icon href=favicon-32.png sizes=32x32 type=image/png>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/png">
 </head>
 
 <body class="site">
@@ -17,7 +17,10 @@
         <div class="header__inner container">
             <h1 class="header__title">
                 <a class="header__title-link" href="{% url 'web:welcome' %}">
-                    MMT Py
+                    <img class="header__logo"
+                        src="{% static 'images/logo.png' %}"
+                        alt="logo" />
+                    <span>MMT Py</span>
                 </a>
             </h1>
 
@@ -68,7 +71,7 @@
     </header>
 
     <main class="site__main">
-        <div class="container u-mt u-mb">
+        <div class="container u-mt-large u-mb-large">
             {% block content %}{% endblock %}
         </div>
     </main>
