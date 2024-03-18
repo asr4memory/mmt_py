@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ uploaded_file.name }} | MMT Py{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ uploaded_file.name }}</h1>
+
+<dl>
+    <dt>Filename</dt>
+    <dd>{{ uploaded_file.name }}</dd>
+
+    <dt>Media type</dt>
+    <dd>{{ uploaded_file.media_type }}</dd>
+
+    <dt>Size</dt>
+    <dd>{{ uploaded_file.size }}</dd>
+
+    <dt>Duration</dt>
+    <dd>{{ uploaded_file.duration }}</dd>
+
+    <dt>Upload date</dt>
+    <dd>{{ uploaded_file.upload_date }}</dd>
+</dl>
+
+<h2>Derivative files</h2>
+
+<h2>Actions</h2>
+
+<div>
+    <button type="button" class="button button--small">
+        Transcribe
+    </button>
+</div>
+
+{% endblock %}
