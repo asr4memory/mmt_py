@@ -1,5 +1,7 @@
 Python version of MMT software
 
+*This software is experimental.*
+
 ## Installation
 
 - Create virtual environment
