@@ -11,6 +11,6 @@ Python version of MMT software
 ## Usage
 
 - Run `python manage.py runserver`
-- Run the webpack dev server with `npm run devserver`
+- Run the webpack dev server with `npm run devserver` (in another terminal)
 - Visit 127.0.0.1:8000/ in your browser
 - The admin interface is located at 127.0.0.1:8000/admin/
