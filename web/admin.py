@@ -1,5 +1,7 @@
 from django.contrib import admin
+from web.models import UploadedFile
 
-from .models import UploadedFile
 
-admin.site.register(UploadedFile)
+@admin.register(UploadedFile)
+class UploadedFileAdmin(admin.ModelAdmin):
+    date_hierarchy = "upload_date"
