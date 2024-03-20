@@ -3,6 +3,13 @@
 {% block title %}{{ uploaded_file.name }} | MMT Py{% endblock %}
 
 {% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'web:uploaded-files' %}">Uploaded files</a>
+    /
+    {{ uploaded_file }}
+</nav>
+
 <h1 class="page-title">{{ uploaded_file.name }}</h1>
 
 <dl>

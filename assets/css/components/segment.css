@@ -1,0 +1,12 @@
+.segment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.segment__word {
+    background-color: lightblue;
+    border-radius: 5px;
+    opacity: var(--score);
+    padding: calc(var(--base-unit) / 8) calc(var(--base-unit) / 4)
+}

@@ -3,13 +3,35 @@
 {% block title %}{{ segment.text }} | MMT Py{% endblock %}
 
 {% block content %}
-<h1 class="page-title">{{ segment.text }}</h1>
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'web:uploaded-files' %}">Uploaded files</a>
+    /
+    <a class="breadcrumbs__link"
+        href="{% url 'web:uploaded-file-detail' transcript.uploaded_file.id %}">
+        {{ transcript.uploaded_file }}
+    </a>
+    /
+    <a class="breadcrumbs__link"
+        href="{% url 'web:transcript-detail' transcript.id %}">
+        transcript {{ transcript.language }}
+    </a>
+    /
+    segment {{ segment.text }}
+</nav>
 
-{% for word in segment.words %}
-<p class="paragraph u-mt-small">
-    <i>{{ word.start }} – {{ word.end }}</i><br>
-    {{ word.word }}
-</p>
-{% endfor %}
+<h1 class="page-title">
+    {{ segment.text }}<br>
+    {{ segment.start }} – {{ segment.end }}
+</h1>
+
+<div class="segment">
+    {% for word in segment.words %}
+    <p class="segment__word" style="--score: {{ word.score }};"
+        title="Score: {{ word.score }}">
+        <i>{{ word.start }} – {{ word.end }}</i> {{ word.word }}
+    </p>
+    {% endfor %}
+</div>
 
 {% endblock %}

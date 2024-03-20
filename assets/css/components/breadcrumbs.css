@@ -1,0 +1,10 @@
+.breadcrumbs {
+    color: var(--subdued-color);
+    font-size: 0.875rem;
+    line-height: var(--base-unit);
+}
+
+.breadcrumbs__link:link,
+.breadcrumbs__link:visited {
+    color: var(--ui-color);
+}

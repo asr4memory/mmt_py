@@ -3,6 +3,18 @@
 {% block title %}{{ transcript }} | MMT Py{% endblock %}
 
 {% block content %}
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__link"
+        href="{% url 'web:uploaded-files' %}">Uploaded files</a>
+    /
+    <a class="breadcrumbs__link"
+        href="{% url 'web:uploaded-file-detail' transcript.uploaded_file.id %}">
+        {{ transcript.uploaded_file }}
+    </a>
+    /
+    transcript {{ transcript.language }}
+</nav>
+
 <h1 class="page-title">{{ transcript }}</h1>
 
 <h2>Segments</h2>

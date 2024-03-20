@@ -3,6 +3,7 @@
     --primary-color: #b6010e;
     --text-color: #333;
     --ui-color: #555;
+    --subdued-color: #555;
     --interleave-color: #edeef2;
     --header-height: calc(var(--base-unit) * 2);
     --header-bg-color: #b8d055;

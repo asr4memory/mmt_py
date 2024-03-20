@@ -4,9 +4,11 @@
 
 /* Components */
 @import "styles";
+@import "components/breadcrumbs";
 @import "components/button";
 @import "components/form";
 @import "components/header";
+@import "components/segment";
 @import "components/table";
 
 @import "utilities";
