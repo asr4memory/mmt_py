@@ -25,11 +25,15 @@
     {{ segment.start }} – {{ segment.end }}
 </h1>
 
-<div class="segment">
-    {% for word in segment.words %}
-    <p class="segment__word" style="--score: {{ word.score }};"
+<div class="segment" style="height: {{ height }}px;">
+    {% for word in new_words %}
+    <p class="segment__word"
+        style="--score: {{ word.score }}; top: {{ word.top }}px; height: {{ word.height }}px"
         title="Score: {{ word.score }}">
-        <i>{{ word.start }} – {{ word.end }}</i> {{ word.word }}
+        <span class="segment__timecode">
+            {{ word.start }} – {{ word.end }}
+        </span>
+        {{ word.word }}
     </p>
     {% endfor %}
 </div>

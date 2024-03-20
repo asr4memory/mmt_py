@@ -91,10 +91,25 @@ def segment_detail(request, transcript_id, segment_index):
     transcript = get_object_or_404(Transcript, id=transcript_id)
     segment = transcript.content["segments"][segment_index - 1]
 
+    start = segment["start"]
+    end = segment["end"]
+    words = segment["words"]
+
+    new_words = [{
+        "word": word["word"],
+        "start": word["start"],
+        "end": word["end"],
+        "score": word["score"],
+        "top": (word["start"] - start) * 200,
+        "height": (word["end"] - word["start"]) * 200
+    } for word in words]
+
     context = {
         "transcript": transcript,
         "segment_index": segment_index,
         "segment": segment,
+        "new_words": new_words,
+        "height": (end - start) * 200,
     }
     return render(request, "web/segment_detail.html", context)
 

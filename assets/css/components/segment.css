@@ -1,12 +1,16 @@
 .segment {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    position: relative;
 }
 
 .segment__word {
     background-color: lightblue;
     border-radius: 5px;
+    margin: 0;
     opacity: var(--score);
-    padding: calc(var(--base-unit) / 8) calc(var(--base-unit) / 4)
+    position: absolute;
+}
+
+.segment__timecode {
+    color: var(--subdued-color);
+    font-size: 0.875rem;
 }
