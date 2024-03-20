@@ -9,15 +9,10 @@
 {% for segment in transcript.content.segments %}
     <p class="paragraph u-mt-small">
         <i>{{ segment.start }} – {{ segment.end }}</i><br>
-        {{ segment.text }}
+        <a href="{% url 'web:segment-detail' transcript.id forloop.counter %}">
+            {{ segment.text }}
+        </a>
     </p>
-
-    {% for word in segment.words %}
-    <p class="paragraph u-mt-small">
-        <i>{{ word.start }} – {{ word.end }}</i><br>
-        {{ word.word }}
-    </p>
-    {% endfor %}
 {% endfor %}
 
 {% endblock %}

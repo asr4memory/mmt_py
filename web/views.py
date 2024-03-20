@@ -87,5 +87,17 @@ def transcript_detail(request, transcript_id):
                   {"transcript": transcript})
 
 
+def segment_detail(request, transcript_id, segment_index):
+    transcript = get_object_or_404(Transcript, id=transcript_id)
+    segment = transcript.content["segments"][segment_index - 1]
+
+    context = {
+        "transcript": transcript,
+        "segment_index": segment_index,
+        "segment": segment,
+    }
+    return render(request, "web/segment_detail.html", context)
+
+
 def download(request):
     return render(request, "web/download.html")

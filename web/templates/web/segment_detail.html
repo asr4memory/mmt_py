@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ segment.text }} | MMT Py{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ segment.text }}</h1>
+
+{% for word in segment.words %}
+<p class="paragraph u-mt-small">
+    <i>{{ word.start }} – {{ word.end }}</i><br>
+    {{ word.word }}
+</p>
+{% endfor %}
+
+{% endblock %}
