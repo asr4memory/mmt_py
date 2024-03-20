@@ -10,5 +10,7 @@ urlpatterns = [
     path("uploaded-files/", views.uploaded_files, name="uploaded-files"),
     path("uploaded-files/<int:file_id>", views.uploaded_file_detail,
          name="uploaded-file-detail"),
+    path("transcripts/<int:transcript_id>", views.transcript_detail,
+         name="transcript-detail"),
     path("download/", views.download, name="download"),
 ]

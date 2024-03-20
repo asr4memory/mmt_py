@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ transcript }} | MMT Py{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ transcript }}</h1>
+
+<h2>Segments</h2>
+{% for segment in transcript.content.segments %}
+    <p class="paragraph u-mt-small">
+        <i>{{ segment.start }} – {{ segment.end }}</i><br>
+        {{ segment.text }}
+    </p>
+
+    {% for word in segment.words %}
+    <p class="paragraph u-mt-small">
+        <i>{{ word.start }} – {{ word.end }}</i><br>
+        {{ word.word }}
+    </p>
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

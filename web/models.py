@@ -22,3 +22,12 @@ class UploadedFile(models.Model):
 
     class Meta:
         ordering = ["-upload_date"]
+
+
+class Transcript(models.Model):
+    uploaded_file = models.ForeignKey(UploadedFile, on_delete=models.CASCADE)
+    content = models.JSONField()
+    language = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.uploaded_file}-{self.language}"

@@ -3,6 +3,11 @@
 .u-mb { margin-bottom: var(--base-unit); }
 .u-ml { margin-left:   var(--base-unit); }
 
+.u-mt-small { margin-top:    calc(var(--base-unit) / 2); }
+.u-mr-small { margin-right:  calc(var(--base-unit) / 2); }
+.u-mb-small { margin-bottom: calc(var(--base-unit) / 2); }
+.u-ml-small { margin-left:   calc(var(--base-unit) / 2); }
+
 .u-mt-large { margin-top:    calc(var(--base-unit) * 2); }
 .u-mr-large { margin-right:  calc(var(--base-unit) * 2); }
 .u-mb-large { margin-bottom: calc(var(--base-unit) * 2); }

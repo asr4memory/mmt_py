@@ -22,14 +22,16 @@
     <dd>{{ uploaded_file.upload_date }}</dd>
 </dl>
 
-<h2>Derivative files</h2>
+<h2>Transcripts</h2>
 
-<h2>Actions</h2>
-
-<div>
-    <button type="button" class="button button--small">
-        Transcribe
-    </button>
-</div>
+<ul>
+{% for transcript in transcripts %}
+    <li>
+        <a href="{% url 'web:transcript-detail' transcript.id %}">
+            {{ transcript }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
 
 {% endblock %}

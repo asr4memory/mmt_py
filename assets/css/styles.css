@@ -75,3 +75,8 @@ body {
     margin-top: calc(var(--base-unit) / 2);
     margin-bottom: calc(var(--base-unit) * 1);
 }
+
+.paragraph {
+    margin: 0;
+    max-width: calc(var(--base-unit) * 20);  /* readable line-length */
+}
