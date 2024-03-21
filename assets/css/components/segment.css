@@ -5,6 +5,7 @@
 .segment__word {
     background-color: lightblue;
     border-radius: 5px;
+    text-align: center;
     margin: 0;
     opacity: var(--score);
     position: absolute;
@@ -12,5 +13,6 @@
 
 .segment__timecode {
     color: var(--subdued-color);
+    display: none;
     font-size: 0.875rem;
 }

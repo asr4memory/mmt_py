@@ -95,13 +95,15 @@ def segment_detail(request, transcript_id, segment_index):
     end = segment["end"]
     words = segment["words"]
 
+    factor = 300
+
     new_words = [{
         "word": word["word"],
         "start": word["start"],
         "end": word["end"],
         "score": word["score"],
-        "top": (word["start"] - start) * 200,
-        "height": (word["end"] - word["start"]) * 200
+        "left": (word["start"] - start) * factor,
+        "width": (word["end"] - word["start"]) * factor,
     } for word in words]
 
     context = {
@@ -109,7 +111,7 @@ def segment_detail(request, transcript_id, segment_index):
         "segment_index": segment_index,
         "segment": segment,
         "new_words": new_words,
-        "height": (end - start) * 200,
+        "width": (end - start) * factor,
     }
     return render(request, "web/segment_detail.html", context)
 
