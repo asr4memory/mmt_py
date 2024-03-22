@@ -1,6 +1,7 @@
 import subprocess
 from datetime import timedelta
 from celery import shared_task
+import whisperx
 
 from web.models import UploadedFile, Transcript
 
@@ -50,13 +51,11 @@ def get_duration(uploaded_file_id: int):
 
 @shared_task
 def get_transcript(uploaded_file_id: int):
-    import whisperx  # Import it here because it takes a long time.
-
     f = UploadedFile.objects.get(id=uploaded_file_id)
     file_path = f.file.path
 
     device = "cpu"
-    batch_size = 16
+    batch_size = 4
     compute_type = "float32"
     model = whisperx.load_model("large-v3", device, compute_type=compute_type)
     audio = whisperx.load_audio(file_path)
