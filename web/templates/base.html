@@ -12,63 +12,7 @@
 </head>
 
 <body class="site">
-
-    <header class="header site__header">
-        <div class="header__inner container">
-            <h1 class="header__title">
-                <a class="header__title-link" href="{% url 'web:welcome' %}">
-                    <img class="header__logo"
-                        src="{% static 'images/logo.png' %}"
-                        width="20" alt="logo" />
-                    <span>MMT Py</span>
-                </a>
-            </h1>
-
-            <nav class="primary-nav">
-                <ul class="primary-nav__list">
-                    <li class="primary-nav__item">
-                        <a class="primary-nav__link"
-                            href="{% url 'web:upload' %}">
-                            Upload
-                        </a>
-                    </li>
-                    <li class="primary-nav__item">
-                        <a class="primary-nav__link"
-                            href="{% url 'web:uploaded-files' %}">
-                            Uploaded files
-                        </a>
-                    </li>
-                    <li class="primary-nav__item">
-                        <a class="primary-nav__link"
-                            href="{% url 'web:download' %}">
-                            Download
-                        </a>
-                    </li>
-                    <li class="primary-nav__item">
-                        {% if user.is_authenticated %}
-                        <form action="{% url 'logout' %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="primary-nav__link">
-                                Logout {{ user.username }}
-                            </button>
-                        </form>
-                        {% else %}
-                        <a class="primary-nav__link" href="{% url 'login' %}">
-                            Login
-                        </a>
-                        {% endif %}
-                    </li>
-                    {% if not user.is_authenticated %}
-                    <li class="primary-nav__item">
-                        <a class="primary-nav__link" href="">
-                            Register
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>
+    {% include "header.html" %}
 
     <main class="site__main">
         <div class="container u-mt-large u-mb-large">
@@ -76,11 +20,6 @@
         </div>
     </main>
 
-    <footer class="footer site__footer">
-        <div class="footer__inner container">
-            MMT Py Version 0.1
-        </div>
-    </footer>
-
+    {% include "footer.html" %}
 </body>
 </html>
