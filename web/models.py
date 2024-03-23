@@ -9,6 +9,9 @@ class UploadedFile(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True)
     duration = models.DurationField(null=True, blank=True)
 
+    def transcript_count(self):
+        return self.transcript_set.count()
+
     def __str__(self):
         return self.name
 

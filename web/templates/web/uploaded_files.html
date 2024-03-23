@@ -13,6 +13,7 @@
             <th scope="col">Size</th>
             <th scope="col">Duration</th>
             <th scope="col">Upload date</th>
+            <th scope="col">Transcripts</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
             <td>{{ file.size }}</td>
             <td>{{ file.duration }}</td>
             <td>{{ file.upload_date }}</td>
+            <td>{{ file.transcript_count }}</td>
         </tr>
     {% endfor %}
     </tbody>
