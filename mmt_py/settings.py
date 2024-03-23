@@ -157,12 +157,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 Q_CLUSTER = {
     'name': 'default',
     'workers': 1,
-    'recycle': 1,
+    'recycle': 10,
     'timeout': 60 * 60 * 24,  # one day
     'retry':   60 * 60 * 25,  # must be higher than timeout
     'compress': True,
     'save_limit': 250,
-    'queue_limit': 1,
+    'queue_limit': 4,
     'label': 'Task queue',
     'orm': 'default',
 }

@@ -2,6 +2,7 @@ import subprocess
 from datetime import timedelta
 from django_q.tasks import async_task, result
 from web.models import UploadedFile
+import whisperx
 
 
 def calculate_duration(uploaded_file_id: int):
@@ -21,8 +22,6 @@ def calculate_duration(uploaded_file_id: int):
 
 
 def calculate_transcript(uploaded_file_id: int):
-    import whisperx
-
     f = UploadedFile.objects.get(id=uploaded_file_id)
     file_path = f.file.path
 
