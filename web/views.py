@@ -1,9 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
+from django_q.status import Stat
 from web.models import UploadedFile, Transcript
 from web.forms import UploadFileForm
-from web.tasks import get_duration, get_transcript
+from web.tasks import process_duration, process_transcript
 
 
 def welcome(request):
@@ -22,8 +22,8 @@ def upload(request):
                 size=tmp_file.size,
             )
             instance.save()
-            get_duration.delay(instance.id)
-            get_transcript.delay(instance.id)
+            process_duration(instance.id)
+            process_transcript(instance.id)
 
             return HttpResponseRedirect("/uploaded-files/")
     else:
@@ -83,3 +83,9 @@ def segment_detail(request, transcript_id, segment_index):
 
 def download(request):
     return render(request, "web/download.html")
+
+
+def queues(request):
+    stats = Stat.get_all()
+    context = {"stats": stats}
+    return render(request, "web/queues.html", context)

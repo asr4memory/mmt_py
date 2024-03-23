@@ -1,4 +1,6 @@
-celery==5.3.6
+blessed==1.20.0
 Django==5.0.3
 django-debug-toolbar==4.3.0
+django-q2
 django-webpack-loader==3.0.1
+psutil==5.9.8

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'web.apps.WebConfig',
     'webpack_loader',
     'debug_toolbar',
+    'django_q',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,6 +120,16 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Cache "framework"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": "/var/tmp/django_cache",
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -142,7 +153,16 @@ WEBPACK_LOADER = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Celery Configuration Options
-CELERY_TIMEZONE = "Europe/Berlin"
-CELERY_TASK_TRACK_STARTED = True
-CELERY_TASK_TIME_LIMIT = 30 * 60
+# Task queue settings
+Q_CLUSTER = {
+    'name': 'default',
+    'workers': 1,
+    'recycle': 1,
+    'timeout': 60 * 60 * 24,  # one day
+    'retry':   60 * 60 * 25,  # must be higher than timeout
+    'compress': True,
+    'save_limit': 250,
+    'queue_limit': 1,
+    'label': 'Task queue',
+    'orm': 'default',
+}

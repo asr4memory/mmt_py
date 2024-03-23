@@ -1,39 +1,10 @@
 import subprocess
 from datetime import timedelta
-from celery import shared_task
-import whisperx
-
-from web.models import UploadedFile, Transcript
-
-@shared_task
-def add(x, y):
-    return x + y
+from django_q.tasks import async_task, result
+from web.models import UploadedFile
 
 
-@shared_task
-def mul(x, y):
-    return x * y
-
-
-@shared_task
-def xsum(numbers):
-    return sum(numbers)
-
-
-@shared_task
-def count_transcripts():
-    return Transcript.objects.count()
-
-
-@shared_task
-def set_transcript_language(transcript_id, language):
-    t = Transcript.objects.get(id=transcript_id)
-    t.language = language
-    t.save()
-
-
-@shared_task
-def get_duration(uploaded_file_id: int):
+def calculate_duration(uploaded_file_id: int):
     f = UploadedFile.objects.get(id=uploaded_file_id)
     file_path = f.file.path
     p = subprocess.run(['ffprobe',
@@ -49,8 +20,9 @@ def get_duration(uploaded_file_id: int):
     f.save()
 
 
-@shared_task
-def get_transcript(uploaded_file_id: int):
+def calculate_transcript(uploaded_file_id: int):
+    import whisperx
+
     f = UploadedFile.objects.get(id=uploaded_file_id)
     file_path = f.file.path
 
@@ -68,3 +40,13 @@ def get_transcript(uploaded_file_id: int):
                             device, return_char_alignments=False)
 
     f.transcript_set.create(content=result, language=language)
+
+
+def process_duration(uploaded_file_id: int):
+    """Interface for calculate_duration"""
+    async_task(calculate_duration, uploaded_file_id)
+
+
+def process_transcript(uploaded_file_id: int):
+    """Interface for calculate_transcript"""
+    async_task(calculate_transcript, uploaded_file_id)

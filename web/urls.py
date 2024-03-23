@@ -15,4 +15,5 @@ urlpatterns = [
     path("transcripts/<int:transcript_id>/<int:segment_index>/",
          views.segment_detail, name="segment-detail"),
     path("download/", views.download, name="download"),
+    path("queues/", views.queues, name="queues"),
 ]

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Queues | MMT Py{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Queues</h1>
+
+<ul>
+{% for stat in stats %}
+    <li>
+        {{ stat.cluster_id }} - {{ stat.status }}
+        <ul>
+            <li>{{ stat.task_q_size }} tasks in the task queue</li>
+            <li>{{ stat.done_q_size }} tasks in the result queue</li>
+            <li>empty queues: {{ stat.empty_queues }}</li>
+            <li>{{ stat.uptime }} seconds up</li>
+        </ul>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
