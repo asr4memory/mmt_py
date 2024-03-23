@@ -5,6 +5,7 @@ Python version of MMT software
 ## Requirements
 
 - Python 3.12 (tested with 3.12, likely runs with older versions)
+- Node.js
 - ffmpeg
 
 ## Installation
