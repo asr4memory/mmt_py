@@ -1,6 +1,9 @@
-Python version of MMT software
+Python transcription software based on Django and WhisperX
 
-*This software is experimental.*
+The software is still experimental. You can upload small video
+or audio files. They are then transcribed in the background by
+a django-q2 worker cluster using WhisperX. When ready, the
+transcripts can be viewed in the browser.
 
 ## Requirements
 
